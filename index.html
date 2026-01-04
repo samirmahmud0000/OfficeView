@@ -5,224 +5,191 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Samir Mahmud | Portfolio</title>
 
+<meta name="description" content="Samir Mahmud | Computer Science Student | Linux | Internship Seeker">
+
 <style>
-:root {
-  --bg: #0f172a;
-  --card: #020617;
-  --text: #e5e7eb;
-  --accent: #38bdf8;
+:root{
+--bg:#0f172a;--card:#020617;--text:#e5e7eb;--accent:#38bdf8;
+--grad:linear-gradient(135deg,#38bdf8,#818cf8);
+}
+.light{
+--bg:#f8fafc;--card:#fff;--text:#0f172a;--accent:#0284c7;
+--grad:linear-gradient(135deg,#0284c7,#0ea5e9);
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* Floating particles */
+.particles span{
+position:fixed;display:block;width:8px;height:8px;
+background:var(--accent);opacity:.2;border-radius:50%;
+animation:float 20s linear infinite;
+}
+@keyframes float{
+from{transform:translateY(110vh)}
+to{transform:translateY(-10vh)}
 }
 
-.light {
-  --bg: #f8fafc;
-  --card: #ffffff;
-  --text: #0f172a;
-  --accent: #0284c7;
+/* Toggle */
+.toggle{
+position:fixed;top:15px;right:15px;z-index:10;
+background:var(--card);padding:10px 16px;border-radius:20px;cursor:pointer;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+/* Header */
+header{text-align:center;padding:100px 20px 60px}
+header img{
+width:150px;height:150px;border-radius:50%;
+border:4px solid var(--accent);margin-bottom:15px;
+}
+header h1{color:var(--accent);font-size:2.6rem}
+.typing{font-size:1.1rem;opacity:.85;height:25px}
+
+/* Button */
+.btn{
+display:inline-block;margin-top:20px;
+padding:12px 26px;border-radius:30px;
+background:var(--grad);color:#fff;text-decoration:none;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  transition: all 0.4s ease;
+/* Sections */
+section{max-width:1000px;margin:auto;padding:50px 20px}
+h2{text-align:center;color:var(--accent);margin-bottom:30px}
+.card{
+background:var(--card);padding:25px;border-radius:16px;
+margin-bottom:25px;box-shadow:0 10px 25px rgba(0,0,0,.25);
+transition:.3s;
+}
+.card:hover{transform:translateY(-6px)}
+
+/* Skills */
+.bar{background:#1e293b;border-radius:10px;overflow:hidden}
+.fill{height:10px;background:var(--grad);width:0;animation:fill 2s forwards}
+@keyframes fill{to{width:var(--lvl)}}
+
+/* Projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.project img{width:100%;border-radius:12px;cursor:pointer}
+
+/* Modal */
+.modal{
+display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+background:rgba(0,0,0,.8);justify-content:center;align-items:center;z-index:20;
+}
+.modal img{max-width:90%;border-radius:15px}
+
+/* Contact */
+input,textarea{
+width:100%;padding:12px;margin:10px 0;border-radius:8px;
+border:none;outline:none;
 }
 
-header {
-  text-align: center;
-  padding: 60px 20px;
-}
+/* Footer */
+footer{text-align:center;padding:30px;opacity:.7}
 
-header img {
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  border: 3px solid var(--accent);
-  margin-bottom: 15px;
-  animation: fadeIn 1.5s ease;
-}
-
-header h1 {
-  color: var(--accent);
-  font-size: 2.4rem;
-}
-
-header p {
-  margin-top: 8px;
-  opacity: 0.9;
-}
-
-.toggle {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: var(--card);
-  padding: 8px 14px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-section {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px 20px;
-  animation: slideUp 1s ease;
-}
-
-h2 {
-  color: var(--accent);
-  margin-bottom: 15px;
-}
-
-.card {
-  background: var(--card);
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-ul {
-  list-style: none;
-}
-
-ul li::before {
-  content: "✔ ";
-  color: var(--accent);
-}
-
-.btn {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 18px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  opacity: 0.85;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  opacity: 0.7;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.8);}
-  to {opacity: 1; transform: scale(1);}
-}
-
-@keyframes slideUp {
-  from {opacity: 0; transform: translateY(30px);}
-  to {opacity: 1; transform: translateY(0);}
+@media(max-width:600px){
+header h1{font-size:2rem}
+header img{width:120px;height:120px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- Floating Particles -->
+<div class="particles">
+<span style="left:5%"></span><span style="left:20%"></span>
+<span style="left:40%"></span><span style="left:60%"></span>
+<span style="left:80%"></span>
+</div>
+
 <div class="toggle" onclick="toggleMode()">🌙 / ☀️</div>
 
 <header>
-  <img src="profile.jpg" alt="Samir Mahmud">
-  <h1>Samir Mahmud</h1>
-  <p>Computer Science Student | Linux User | Internship Seeker</p>
-  <a href="resume.pdf" class="btn" download>Download Resume</a>
+<img src="profile.jpg">
+<h1>Samir Mahmud</h1>
+<div class="typing" id="typing"></div>
+<a class="btn" href="resume.pdf" download>Download Resume</a>
 </header>
 
 <section>
 <h2>About Me</h2>
 <div class="card">
-<p>
-I am a Computer Science student passionate about Linux systems,
-software fundamentals, and problem solving. I am actively seeking
-internship or entry-level opportunities where I can apply my skills,
-learn from real-world projects, and grow as a professional developer.
-</p>
+Computer Science student passionate about Linux systems,
+problem-solving and real-world technical experience.
 </div>
 </section>
 
 <section>
-<h2>Skills</h2>
+<h2>Skill Proficiency</h2>
 <div class="card">
-<h3>Technical</h3>
-<ul>
-<li>Linux (Ubuntu, Xubuntu)</li>
-<li>Terminal & Shell Commands</li>
-<li>HTML,C,C++,Java</li>
-<li>Python (Basic)</li>
-<li>Basic Networking</li>
-</ul>
-
-<br>
-
-<h3>Tools</h3>
-<ul>
-<li>Git & GitHub</li>
-<li>VS Code</li>
-<li>MS Office</li>
-<li>Canva</li>
-</ul>
+<p>Linux</p><div class="bar"><div class="fill" style="--lvl:90%"></div></div>
+<p>HTML & CSS</p><div class="bar"><div class="fill" style="--lvl:80%"></div></div>
+<p>C / C++</p><div class="bar"><div class="fill" style="--lvl:75%"></div></div>
 </div>
 </section>
 
 <section>
 <h2>Projects</h2>
-
-<div class="card">
-<h3>Linux System Setup & Troubleshooting</h3>
-<p>
-Configured and optimized Linux systems, managed partitions,
-fixed Wi-Fi speed issues, and maintained system stability.
-Gained hands-on experience with real hardware environments.
-</p>
+<div class="projects">
+<div class="project card">
+<img src="project1.jpg" onclick="openModal(this.src)">
+<h3>Linux System Troubleshooting</h3>
 </div>
-
-<div class="card">
-<h3>Professional CV & Portfolio Design</h3>
-<p>
-Designed modern CVs and portfolios focusing on clean layout,
-ATS-friendly structure, and professional presentation.
-</p>
+<div class="project card">
+<img src="project2.jpg" onclick="openModal(this.src)">
+<h3>Portfolio & CV Design</h3>
 </div>
-
-</section>
-
-<section>
-<h2>Career Objective</h2>
-<div class="card">
-<p>
-Seeking an internship or junior role in software or IT support
-where I can contribute, learn industry practices, and build
-a strong technical career foundation.
-</p>
 </div>
 </section>
 
 <section>
-<h2>Contact</h2>
+<h2>Contact Me</h2>
 <div class="card">
-<p>📧 Email: samir10mahmud@email.com</p>
-<p>💻 GitHub: github.com/yourusername</p>
-<p>🔗 LinkedIn: linkedin.com/in/yourprofile</p>
+<form action="mailto:samir10mahmud@email.com" method="post" enctype="text/plain">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="4" placeholder="Your Message"></textarea>
+<button class="btn" type="submit">Send Message</button>
+</form>
 </div>
 </section>
 
-<footer>
-<p>© 2026 Samir Mahmud</p>
-</footer>
+<footer>© 2026 Samir Mahmud</footer>
+
+<!-- Modal -->
+<div class="modal" id="modal" onclick="closeModal()">
+<img id="modalImg">
+</div>
 
 <script>
-function toggleMode() {
-  document.body.classList.toggle("light");
+// Dark mode
+function toggleMode(){document.body.classList.toggle("light")}
+
+// Typing animation
+const text=["Computer Science Student","Linux User","Internship Seeker"];
+let i=0,j=0;
+function type(){
+if(j<text[i].length){
+document.getElementById("typing").innerHTML+=text[i][j++];
+setTimeout(type,80);
+}else setTimeout(erase,1200);
+}
+function erase(){
+if(j>0){
+document.getElementById("typing").innerHTML=text[i].substring(0,--j);
+setTimeout(erase,50);
+}else{i=(i+1)%text.length;setTimeout(type,500);}
+}
+type();
+
+// Modal
+function openModal(src){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImg").src=src;
+}
+function closeModal(){
+document.getElementById("modal").style.display="none";
 }
 </script>
 
